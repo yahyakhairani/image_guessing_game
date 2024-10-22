@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Guessing Game</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Guess the Image Processing Operations!</h1>
+
+    <div class="game-container">
+      <div>
+        <h3>Before</h3>
+        <img id="before-image" alt="Before Image" />
+      </div>
+      <div>
+        <h3>After</h3>
+        <img id="after-image" alt="After Image" />
+      </div>
+    </div>
+
+    <div class="controls">
+      <label for="level">Level:</label>
+      <select id="level">
+        <option value="1">Level 1 (1 Operation)</option>
+        <option value="2">Level 2 (2 Operations)</option>
+      </select>
+      <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="guess-section">
+      <h3>Guess the Operations:</h3>
+      <input
+        type="text"
+        id="guess"
+        placeholder="Enter your guess, e.g., 'grayscale' or 'flip, rotate'"
+      />
+      <button onclick="submitGuess()">Submit Guess</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+  </body>
+</html>
